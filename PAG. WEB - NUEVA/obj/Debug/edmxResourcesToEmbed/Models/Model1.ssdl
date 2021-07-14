@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="URLIMAGENESModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Categoria">
+    <Key>
+      <PropertyRef Name="codigo" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="codigo" Type="int" Nullable="false" />
+    <Property Name="nombre" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="Datos">
+    <Key>
+      <PropertyRef Name="codigo" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="codigo" Type="int" Nullable="false" />
+    <Property Name="url" Type="varchar" MaxLength="999" />
+  </EntityType>
+  <EntityType Name="Fabricantes">
+    <Key>
+      <PropertyRef Name="codigo" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="codigo" Type="int" Nullable="false" />
+    <Property Name="marca" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Productos">
+    <Key>
+      <PropertyRef Name="codigo" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="codigo" Type="int" Nullable="false" />
+    <Property Name="codigo_fabricante" Type="int" />
+    <Property Name="codigo_categoria" Type="int" />
+    <Property Name="nombre" Type="varchar(max)" />
+    <Property Name="descripcion" Type="varchar(max)" />
+    <Property Name="precio" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="stock" Type="int" />
+    <Property Name="url" Type="varchar(max)" />
+  </EntityType>
+  <EntityContainer Name="URLIMAGENESModelStoreContainer">
+    <EntitySet Name="Categoria" EntityType="Self.Categoria" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Datos" EntityType="Self.Datos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Fabricantes" EntityType="Self.Fabricantes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Productos" EntityType="Self.Productos" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

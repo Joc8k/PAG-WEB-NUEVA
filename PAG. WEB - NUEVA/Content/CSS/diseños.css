@@ -1,0 +1,165 @@
+﻿.quitar {
+    padding: 0px;
+    margin:0px;
+}
+
+.barra1 {
+    display: flex;
+    flex-direction: row;
+    background-color: black;
+    width: 100%;
+    height: 70px;
+    align-items: center;
+    padding-left: 5px;
+    justify-content: space-between;
+    flex: 1;
+}
+
+
+
+.barra2 {
+    display: flex;
+    flex-direction: row;
+    background-color: dimgray;
+    width: 100%;
+    height: 40px;
+    align-items: center;
+    padding-left: 16px;
+}
+
+.logo_boton {
+    height: 80px;
+    width: 150px;
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    background-color: darkslategray;
+    color: white;
+    min-height: 100%;
+    top: 0px;
+    width: 260px;
+    left: -1000px;
+    transition: left 1s;
+    z-index: 400;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.element {
+    position: fixed;
+    min-height: 100%;
+    min-width: 100%;
+    top: 0px;
+    background-color: transparent;
+    z-index: 100;
+    display: none;
+}
+
+.minibarra {
+    background-color: dimgray;
+    width: 100%;
+    height: 40px;
+    align-self: center;
+    text-align: center;
+    z-index: 500;
+    padding-top: 10px;
+}
+
+.movertexto {
+    padding-left: 17px;
+}
+
+.movercontenedor {
+    padding-left: 9px;
+}
+
+.barrabusqueda {
+    height: 35px;
+    width: 400px;
+    outline: none;
+    background-color: #dfe;
+    border: 0;
+    border-radius: 9px;
+}
+
+.carrito {
+    display: flex;
+    height: 28px;
+    width: 50px !important;
+    flex-direction: row;
+    justify-content: end;
+    padding-left: 10px;
+}
+
+.barranueva {
+    border-radius: 9px;
+    background-color: white;
+    margin-right: 470px;
+}
+
+.titulo {
+    text-decoration: none;
+    color: white;
+    font-size: 37px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    flex: 1;
+}
+
+.pasarizquierda {
+    flex-direction: row;
+    display: flex;
+    align-items: center;
+}
+
+.contenedor {
+    display: flex;
+    flex-direction: row;
+    align-content: space-evenly;
+}
+
+.productos {
+    padding: 30px;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    border: 2px solid black;
+    border-radius: 10px;
+    flex: 1;
+}
+
+.imgproductos {
+    width: 195px;
+    
+    height: 200px;
+}
+
+.btncomprar {
+    background-color: orange;
+    color: black;
+    font-size: 15px;
+    width: 90px;
+    border-radius: 8px;
+    border-color: orange;
+}
+
+
+.fila {
+    align-self: start;
+    display: flex;
+    flex-direction: row;
+}
+
+.cart {
+    padding: 30px;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    width: 280px;
+    height:250px;
+    border: 2px solid black;
+    border-radius: 10px;
+    flex: 1;
+}

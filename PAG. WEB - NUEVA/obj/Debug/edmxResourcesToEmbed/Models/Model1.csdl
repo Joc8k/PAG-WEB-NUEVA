@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="URLIMAGENESModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Categoria">
+    <Key>
+      <PropertyRef Name="codigo" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="codigo" Type="Int32" Nullable="false" />
+    <Property Name="nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Datos">
+    <Key>
+      <PropertyRef Name="codigo" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="codigo" Type="Int32" Nullable="false" />
+    <Property Name="url" Type="String" MaxLength="999" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Fabricantes">
+    <Key>
+      <PropertyRef Name="codigo" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="codigo" Type="Int32" Nullable="false" />
+    <Property Name="marca" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Productos">
+    <Key>
+      <PropertyRef Name="codigo" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="codigo" Type="Int32" Nullable="false" />
+    <Property Name="codigo_fabricante" Type="Int32" />
+    <Property Name="codigo_categoria" Type="Int32" />
+    <Property Name="nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="precio" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="stock" Type="Int32" />
+    <Property Name="url" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityContainer Name="URLIMAGENESEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Categoria" EntityType="Self.Categoria" />
+    <EntitySet Name="Datos" EntityType="Self.Datos" />
+    <EntitySet Name="Fabricantes" EntityType="Self.Fabricantes" />
+    <EntitySet Name="Productos" EntityType="Self.Productos" />
+  </EntityContainer>
+</Schema>

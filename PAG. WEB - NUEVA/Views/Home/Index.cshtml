@@ -1,0 +1,292 @@
+﻿<body onload="intervalo()">
+
+    <div>
+
+        <div class="pasarizquierda">
+
+            <div id="elementoizquierda" onclick="cambiar()">
+
+                <svg xmlns="http://www.w3.org/2000/svg" height="47px" viewBox="0 0 24 24" width="40px" fill="#000000"><path d="M0 0h24v24H0V0z" fill="none" /><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12l4.58-4.59z" /></svg>
+
+
+            </div>
+
+
+
+            <div>
+
+                <img src="https://asiaopen.pe/wp-content/uploads/2019/04/BANNER-ASIA1.jpg" id="imagen1" alt="Alternate Text" style="height:400px ; width:1150px" />
+
+
+            </div>
+
+
+            <div id="elementorderecha" onclick="cambiar2()">
+
+
+
+
+                <svg xmlns="http://www.w3.org/2000/svg" height="47px" viewBox="0 0 24 24" width="40px" fill="#000000"><path d="M0 0h24v24H0V0z" fill="none" /><path d="M10.02 6L8.61 7.41 13.19 12l-4.58 4.59L10.02 18l6-6-6-6z" /></svg>
+
+            </div>
+
+
+
+
+
+        </div>
+
+
+        <h4 style="color:black ; font-size:35px ; font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif ; margin-top:20px">
+
+            NUEVOS PRODUCTOS :
+
+        </h4>
+
+
+        <div class="contenedor">
+
+            <div id="productos" >
+
+
+
+                <div id="nombre1" style="font-size:14px">
+
+
+
+                </div>
+
+                <div class="fila">
+                    <div>
+                        <div id="stock1">
+
+                        </div>
+                        <div id="precio1">
+
+                        </div>
+
+                        <button class="btncomprar">
+
+                            Comprar
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div id="productos" >
+
+
+
+                <div id="nombre1" style="font-size:14px">
+
+
+
+                </div>
+
+                <div class="fila">
+                    <div>
+                        <div id="stock1">
+
+                        </div>
+                        <div id="precio1">
+
+                        </div>
+
+                        <button class="btncomprar">
+
+                            Comprar
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+        </div>
+
+
+
+
+    </div>
+
+
+</body>
+<script>
+
+    var imagenes = new Array(6);
+
+    var contador = 0;
+
+
+    function cambiar()
+    {
+
+        contador -= 1;
+
+
+        if (contador < 0)
+        {
+            contador = 4;
+        }
+
+        var derecha = document.getElementById("imagen1").src = imagenes[contador];
+
+
+
+
+        console.log(imagenes[0]);
+
+    }
+    function cambiar2() {
+
+
+        contador += 1;
+
+
+        if (contador >= 4)
+        {
+            contador = 0;
+        }
+
+
+        var derecha = document.getElementById("imagen1").src = imagenes[contador];
+
+
+
+
+    }
+    function rotarimg()
+    {
+
+
+        contador += 1;
+
+        if (contador >= imagenes.length) {
+            contador = 0;
+        }
+
+
+        var imagen = document.getElementById("imagen1").src = imagenes[contador];
+
+    }
+    function intervalo() {
+
+        setInterval(rotarimg, 5000);
+
+        $.ajax({
+            type: "Post",
+            url: '../../BaseDeDatos/Leer',
+            success: function (data)
+            {
+                for (var i = 0; i < Object.keys(data).length; i++)
+                {
+
+                    var url = data[i].url.toString();
+
+                    imagenes[i] = url;
+
+
+
+                }
+            },
+            data: {
+
+            },
+
+           
+
+        }).done(function () { });
+
+        $.ajax({
+            type: "Post",
+            url: '/BaseDeDatos/LeerProducts',
+            success: function (data) {
+
+                for (var i = 0; i < Object.keys(data).length; i++) {
+
+                    automatic(data[i].url, data[i].precio, data[i].stock)
+
+
+                }
+
+                console.log(data);
+
+
+            },
+
+            data: {
+
+            },
+        }).done(function () { });
+
+
+
+
+
+        // FUNCION AJAX DE PRODUCTOS
+
+        var name1 = document.getElementById("nombre1");
+        var price1 = document.getElementById("precio1");
+        var stck1 = document.getElementById("stock1");
+
+
+
+    }
+
+    function automatic(url , precio , stock)
+    {
+
+        var div = document.createElement("div");
+
+        var conten = document.getElementById("productos");
+
+        var div1 = document.createElement("div");
+
+        var img1 = document.createElement("img");
+
+        img1.src = url;
+
+        img1.classList.add("imgproductos");
+
+        var textprice = document.createElement("h4");
+
+        var textstock = document.createElement("h4");
+
+        textprice.innerHTML = "Precio : " + precio + "$";
+        textstock.innerHTML = "Stock : " +  stock + "unidades";
+
+        conten.appendChild(div);
+
+        div.style.flex = 1;
+
+        div.appendChild(div1);
+
+        div1.appendChild(img1);
+
+        div1.style.display
+
+        div1.appendChild(textprice);
+        div1.appendChild(textstock);
+
+
+        img1.classList.add("imgproductos");
+        div1.classList.add("cart");
+
+
+
+     
+    }
+
+
+
+
+</script>
