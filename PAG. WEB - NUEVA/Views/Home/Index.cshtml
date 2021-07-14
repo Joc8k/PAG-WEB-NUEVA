@@ -46,68 +46,14 @@
 
         <div class="contenedor">
 
-            <div id="productos" >
+            <div class="productos" id="productos" >
 
 
-
-                <div id="nombre1" style="font-size:14px">
-
-
-
-                </div>
-
-                <div class="fila">
-                    <div>
-                        <div id="stock1">
-
-                        </div>
-                        <div id="precio1">
-
-                        </div>
-
-                        <button class="btncomprar">
-
-                            Comprar
-
-                        </button>
-
-                    </div>
-
-                </div>
 
             </div>
 
 
-            <div id="productos" >
-
-
-
-                <div id="nombre1" style="font-size:14px">
-
-
-
-                </div>
-
-                <div class="fila">
-                    <div>
-                        <div id="stock1">
-
-                        </div>
-                        <div id="precio1">
-
-                        </div>
-
-                        <button class="btncomprar">
-
-                            Comprar
-
-                        </button>
-
-                    </div>
-
-                </div>
-
-            </div>
+           
 
 
 
@@ -181,8 +127,8 @@
     function intervalo() {
 
         setInterval(rotarimg, 5000);
-
-        $.ajax({
+        AddItemsWithOutDB();
+        /*$.ajax({
             type: "Post",
             url: '../../BaseDeDatos/Leer',
             success: function (data)
@@ -204,8 +150,8 @@
 
            
 
-        }).done(function () { });
-
+        }).done(function () { });*/
+        /*
         $.ajax({
             type: "Post",
             url: '/BaseDeDatos/LeerProducts',
@@ -227,7 +173,7 @@
 
             },
         }).done(function () { });
-
+        */
 
 
 
@@ -241,7 +187,12 @@
 
 
     }
-
+    function AddItemsWithOutDB() {
+        for (var i = 0; i < 3; i++) {
+            var url = "https://5.imimg.com/data5/NG/IQ/BG/SELLER-65481850/computer-keyboard-500x500.jpg"
+            automatic(url,5,5)
+        }
+    }
     function automatic(url , precio , stock)
     {
 
@@ -251,9 +202,10 @@
 
         var div1 = document.createElement("div");
 
-        var img1 = document.createElement("img");
+        var img1 = document.createElement("div");
 
-        img1.src = url;
+        img1.style.backgroundImage = "url('" + url + "')";
+        img1.className = "cartimg";
 
         img1.classList.add("imgproductos");
 
